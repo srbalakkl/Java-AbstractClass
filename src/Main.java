@@ -1,6 +1,11 @@
 import java.util.Scanner;
 
 abstract class Shape {
+//    The abstract class can have a constructor
+    public Shape() {
+        System.out.println("Shape(Abstract Class) constructor is called.");
+    }
+
     int width;
     abstract void area();
     void sayHi() {
