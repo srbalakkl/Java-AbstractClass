@@ -3,6 +3,9 @@ import java.util.Scanner;
 abstract class Shape {
     int width;
     abstract void area();
+    void sayHi() {
+        System.out.println("Hi from Shape");
+    }
 }
 
 class Square extends Shape {
@@ -17,7 +20,13 @@ class Square extends Shape {
     }
 }
 
-class Circle extends Shape {
+abstract class DuplicateShape {
+    abstract void test();
+//    void demo();
+}
+
+//class Circle extends Shape, DuplicateShape {//<- Cannot extend multiple classes because Java does not support multiple inheritance
+class Circle extends Shape {//<- Concrete class extending abstract class Shape
 
     public Circle(int y) {
         this.width = y;
@@ -35,6 +44,9 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         int x = sc.nextInt();
         int y = sc.nextInt();
+
+//        Shape s = new Shape();//<- Error: We cannot instantiate the abstract class in java
+//        s.sayHi();
 
         Square a = new Square(x);
         Circle b = new Circle(y);
